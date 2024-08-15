@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14.4
+    container_name: postgres-db
+    environment:
+      POSTGRES_PASSWORD: njidda
+    ports:
+      - "5431:5432"
+    volumes:
+      - postgresdata:/var/lib/postgresql/data
+
+  mysql:
+    image: mysql:8.2.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: njidda
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+
+volumes:
+  postgresdata:
+  mysqldata:

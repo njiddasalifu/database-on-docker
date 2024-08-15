@@ -21,6 +21,29 @@ services:
     volumes:
       - mysqldata:/var/lib/mysql
 
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb-db
+    environment:
+      MYSQL_ROOT_PASSWORD: njidda
+    ports:
+      - "3307:3306"
+    volumes:
+      - mariadbdata:/var/lib/mysql
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: njidda
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodbdata:/data/db
+
 volumes:
   postgresdata:
   mysqldata:
+  mariadbdata:
+  mongodbdata:
